@@ -65,18 +65,21 @@ public class SignInController
 	{
 		boolean isValid = false;
 		
-		username = display.askQuestion("Username: ");
-		password = display.askQuestion("Password: ");
+		username = username;
+		
 		
 		for (int row = 0; row < userCred.length; row++)
 		{
 			for (int col = 0; col < userCred[0].length; col++)
 			{
-				if(password.equals(userCred[row][col]))
+				if(username.equals(userCred[row]))
 				{
-					isValid = true;
+					if (password.equals(userCred[row][col]))
+					{
+						isValid = true;
 					
-					return isValid;
+						return isValid;
+					}
 				}
 			}
 		}
@@ -87,6 +90,8 @@ public class SignInController
 	
 	public void pages()
 	{
+		boolean results = false;
+		  
 		
 	}
 }
