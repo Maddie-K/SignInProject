@@ -1,18 +1,19 @@
 package sign.controller;
 
 import sign.view.Popup;
+import java.util.*;
 
 public class SignInController
 {
 	private Popup display;
-	private String[][] userCred;
+	private Hashtable<String, String> userCred;
 	private String username;
 	private String password;
 	
 	public SignInController()
 	{
 		this.display = new Popup();
-		this.userCred = new String[11][1];
+		this.userCred = new Hashtable<String,String>();
 		this.username = new String();
 		this.password = new String();
 	}
@@ -21,45 +22,38 @@ public class SignInController
 	{
 		setupCred();
 		login("Maddie", "2002");
-		System.out.print("hello, world");
+
 	}
 	
 	private void setupCred()
 	{
-		userCred[0][0] = "Maddie";
-		userCred[0][1] = "2002";
+		userCred.put("2002", "Maddie");
 		
-		userCred[1][0] = "Sally";
-		userCred[1][1] = "5678";
+		userCred.put("5678", "Sally");
 		
-		userCred[2][0] = "Bill";
-		userCred[2][1] = "9876";
+		userCred.put("9876", "Bill");
 		
-		userCred[3][0] = "Jackson";
-		userCred[3][1] = "5432";
+		userCred.put("5432", "Jackson");
 		
-		userCred[4][0] = "Sophie";
-		userCred[4][1] = "0220";
+		userCred.put("0220", "Sophie");
 		
-		userCred[5][0] = "Bryan";
-		userCred[5][1] = "0197";
+		userCred.put("0197", "Bryan");
 		
-		userCred[6][0] = "Melodie";
-		userCred[6][1] = "0106";
+		userCred.put("0106", "Melodie");
 		
-		userCred[7][0] = "Cody";
-		userCred[7][1] = "0983";
+		userCred.put("0983", "Cody");
 		
-		userCred[8][0] = "Dallin";
-		userCred[8][1] = "0489";
+		userCred.put("0489", "Dallin");
 		
-		userCred[9][0] = "Kathrine";
-		userCred[9][1] = "0707";
+		userCred.put("0707", "Kathrine");
 		
-		userCred[10][0] = "Harley";
-		userCred[10][1] = "1098";
+		userCred.put("1098", "Harley");
 	}
 
+	public void signUp(String username, String password)
+	{
+		
+	}
 	
 	public boolean login(String username, String password)
 	{
