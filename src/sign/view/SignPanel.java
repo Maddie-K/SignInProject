@@ -14,7 +14,7 @@ public class SignPanel extends JPanel
 	
 	private JButton submitButton;
 	private JTextField entryFeild;
-	private JTextArea textField;
+	private JTextArea textArea;
 	private JScrollPane signPane;
 	
 	public SignPanel(SignInController controller)
@@ -25,8 +25,10 @@ public class SignPanel extends JPanel
 		
 		this.submitButton = new JButton("Submit");
 		this.entryFeild = new JTextField("Type here", 50);
-		this.textField = new JTextArea(20,50);
+		this.textArea = new JTextArea(20,50);
 		this.signPane = new JScrollPane();
+		
+		setupPanel();
 	}
 	
 	private void setupPanel()
@@ -35,9 +37,17 @@ public class SignPanel extends JPanel
 		this.setSize(800, 600);
 		this.setLayout(layout);
 		
-		signPane.setViewportView(textField);
+		signPane.setViewportView(textArea);
 		signPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		signPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+		textArea.setEditable(false);
+		textArea.setEnabled(false);
+		
+		this.add(submitButton);
+		this.add(entryFeild);
 	}
 	
 }
