@@ -30,6 +30,7 @@ public class SignPanel extends JPanel
 		
 		setupPanel();
 		setupLayout();
+		setuplisteners();
 	}
 	
 	private void setupPanel()
@@ -61,6 +62,14 @@ public class SignPanel extends JPanel
 				String text = entryFeild.getText();
 			}
 		});
+	}
+	
+	private void setupDisplay(String input)
+	{
+		//String response = controller;
+		//textArea.append(input);
+		//textArea.append("\n" + response + "\n");
+		//entryFeild.setText("");
 	}
 	
 	
