@@ -58,26 +58,8 @@ public class SignInController
 	public boolean login(String username, String password)
 	{
 		boolean isValid = false;
-		
-		username = username;
-		
-		
-		for (int row = 0; row < userCred.length; row++)
-		{
-			for (int col = 0; col < userCred[0].length; col++)
-			{
-				if(username.equals(userCred[row]))
-				{
-					if (password.equals(userCred[row][col]))
-					{
-						isValid = true;
-					
-						return isValid;
-					}
-				}
-			}
-		}
-				
+		 
+ 				
 		
 		return isValid;
 	}
