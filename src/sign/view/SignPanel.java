@@ -24,17 +24,18 @@ public class SignPanel extends JPanel
 		this.layout = new SpringLayout();
 		
 		this.submitButton = new JButton("Submit");
-		this.entryFeild = new JTextField("Type here", 50);
-		this.textArea = new JTextArea(20,50);
+		this.entryFeild = new JTextField("Type here", 30);
+		this.textArea = new JTextArea(12,30);
 		this.signPane = new JScrollPane();
 		
 		setupPanel();
+		setupLayout();
 	}
 	
 	private void setupPanel()
 	{
 		this.setBackground(new Color(75, 0, 130));
-		this.setSize(800, 600);
+		this.setSize(400, 300);
 		this.setLayout(layout);
 		
 		signPane.setViewportView(textArea);
@@ -48,6 +49,32 @@ public class SignPanel extends JPanel
 		
 		this.add(submitButton);
 		this.add(entryFeild);
+		this.add(signPane);
+	}
+	
+	private void setuplisteners()
+	{
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String text = entryFeild.getText();
+			}
+		});
+	}
+	
+	
+	private void setupLayout()
+	{
+		layout.putConstraint(SpringLayout.WEST, submitButton, 150, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, submitButton, -10, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.WEST, entryFeild, 15, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitButton);
+		layout.putConstraint(SpringLayout.WEST, entryFeild, 15, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitButton);
+		layout.putConstraint(SpringLayout.NORTH, signPane, 15, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, signPane, 0, SpringLayout.WEST, entryFeild);
+		
 	}
 	
 }
