@@ -2,10 +2,13 @@ package sign.controller;
 
 import sign.view.Popup;
 import java.util.*;
+import sign.view.SignFrame;
 
 public class SignInController
 {
 	private Popup display;
+	private SignFrame frame;
+	
 	private Hashtable<String, String> userCred;
 	private String username;
 	private String password;
@@ -13,6 +16,8 @@ public class SignInController
 	public SignInController()
 	{
 		this.display = new Popup();
+		this.frame = new SignFrame(this);
+		
 		this.userCred = new Hashtable<String,String>();
 		this.username = new String();
 		this.password = new String();
