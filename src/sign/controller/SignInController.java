@@ -12,21 +12,21 @@ public class SignInController
 	
 	public SignInController()
 	{
-		interactWithSignIn();
+		
 	}
 	
 	public void start()
 	{
-		interactWithSignIn();
+		
 	}
 	
-	public String interactWithSignIn()
+	public String interactWithSignIn(String username, String password)
 	{
-		String resopnse = "";
+		String response = "";
 		
+		response = SignIn.login(username);
 		
-		
-		return resopnse;
+		return response;
 	}
 	
 }
