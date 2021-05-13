@@ -12,7 +12,8 @@ public class SignPanel extends JPanel
 	private SignInController controller;
 	private SpringLayout layout;
 	
-	private JButton submitButton;
+	private JButton submitUsername;
+	private JButton submitPassword;
 	private JTextField entryFeild;
 	private JTextArea textArea;
 	private JScrollPane signPane;
@@ -23,7 +24,8 @@ public class SignPanel extends JPanel
 		this.controller = controller;
 		this.layout = new SpringLayout();
 		
-		this.submitButton = new JButton("Submit");
+		this.submitUsername = new JButton("Username");
+		this.submitPassword = new JButton("Password");
 		this.entryFeild = new JTextField("Type here", 30);
 		this.textArea = new JTextArea(12,30);
 		this.signPane = new JScrollPane();
@@ -48,41 +50,62 @@ public class SignPanel extends JPanel
 		textArea.setEditable(false);
 		textArea.setEnabled(false);
 		
-		this.add(submitButton);
+		this.add(submitUsername);
+		this.add(submitPassword);
 		this.add(entryFeild);
 		this.add(signPane);
 	}
 	
 	private void setuplisteners()
 	{
-		submitButton.addActionListener(new ActionListener()
+		submitUsername.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
 				String text = entryFeild.getText();
+				setupDisplayUsername(text);
+			}
+		});
+		
+		submitPassword.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String text = entryFeild.getText();
+				setupDisplayPassowrd(text);
 			}
 		});
 	}
 	
-	private void setupDisplay(String input)
+	private void setupDisplayUsername(String username)
 	{
-		//String response = controller;
-		//textArea.append(input);
+		//String response = controller.interactWithSignIn(username);
+		textArea.append(username);
 		//textArea.append("\n" + response + "\n");
-		//entryFeild.setText("");
+		entryFeild.setText("");
+	}
+	
+	private void setupDisplayPassowrd(String password)
+	{
+		//String response = controller.interactWithSignIn(password);
+		textArea.append(password);
+		//textArea.append("\n" + response + "\n");
+		entryFeild.setText("");
 	}
 	
 	
 	private void setupLayout()
 	{
-		layout.putConstraint(SpringLayout.WEST, submitButton, 150, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.SOUTH, submitButton, -10, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, submitUsername, -10, SpringLayout.SOUTH, this);
 		layout.putConstraint(SpringLayout.WEST, entryFeild, 15, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitButton);
+		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitUsername);
 		layout.putConstraint(SpringLayout.WEST, entryFeild, 15, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitButton);
+		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitUsername);
 		layout.putConstraint(SpringLayout.NORTH, signPane, 15, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.WEST, signPane, 0, SpringLayout.WEST, entryFeild);
+		layout.putConstraint(SpringLayout.WEST, submitUsername, 90, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.WEST, submitPassword, 0, SpringLayout.EAST, submitUsername);
+		layout.putConstraint(SpringLayout.SOUTH, submitPassword, 0, SpringLayout.SOUTH, submitUsername);
 		
 	}
 	

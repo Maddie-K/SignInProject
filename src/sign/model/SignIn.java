@@ -43,18 +43,6 @@ public class SignIn
 		userCred.put("1098", "Harley");
 	}
 	
-	public void signIn(String username, String password)
-	{
-		if (!password.equalsIgnoreCase(userCred.get(password)))
-		{
-			userCred.put(password, username);
-		}
-		else
-		{
-			display.showMessage("That password is already in use.\nPlease choose another.");
-		}
-	}
-	
 	public boolean login(String username, String password)
 	{
 		boolean isValid = false;

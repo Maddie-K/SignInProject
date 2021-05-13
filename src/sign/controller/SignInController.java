@@ -12,17 +12,19 @@ public class SignInController
 	
 	public SignInController()
 	{
-		
+		interactWithSignIn();
 	}
 	
 	public void start()
 	{
-		signupOrlogin();
+		interactWithSignIn();
 	}
 	
-	public String signupOrlogin()
+	public String interactWithSignIn()
 	{
 		String resopnse = "";
+		
+		
 		
 		return resopnse;
 	}
