@@ -38,8 +38,8 @@ public class SignPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		this.setBackground(new Color(75, 0, 130));
-		this.setSize(400, 300);
+		this.setBackground(new Color(209, 237, 242));
+		this.setSize(400, 310);
 		this.setLayout(layout);
 		
 		signPane.setViewportView(textArea);
@@ -106,4 +106,16 @@ public class SignPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, signPane, 18, SpringLayout.WEST, this);
 	}
 	
+	private Color generateRandomColor()
+	{
+		Color random = null;
+		
+		int red = (int)(Math.random() * 256);
+		int green = (int)(Math.random() * 256);
+		int blue = (int)(Math.random() * 256);
+		
+		random = new Color(red, green, blue);
+		
+		return random;
+	}
 }

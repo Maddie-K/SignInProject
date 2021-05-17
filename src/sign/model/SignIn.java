@@ -69,11 +69,11 @@ public class SignIn
 
 		if (success == true)
 		{
-			if(username.equals("Maddie"))
+			if(username.equalsIgnoreCase("Maddie"))
 			{
 				return respond = "You have entered the director's page.\\nWould you like to make any changes?(Y/N)";
 			}
-			else if (username.equals("Cody") || username.equals("Peter") || username.equals("Scott"))
+			else if (username.equalsIgnoreCase("Cody") || username.equalsIgnoreCase("Dallin") || username.equalsIgnoreCase("Scott"))
 			{
 				return respond = "Thank you for accessing the employee page.\nHave a nice day.";
 			}

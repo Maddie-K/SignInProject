@@ -21,7 +21,7 @@ public class SignFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(panel);
-		this.setSize(400, 300);
+		this.setSize(400, 310);
 		this.setResizable(true);
 		this.setTitle("Chat Window");
 		this.setVisible(true);
