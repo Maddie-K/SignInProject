@@ -12,19 +12,19 @@ public class SignInController
 	
 	public SignInController()
 	{
-		
+		this.frame = new SignFrame(this);
 	}
 	
 	public void start()
 	{
-		
+		System.out.println("Successfully ran");
 	}
 	
 	public String interactWithSignIn(String username, String password)
 	{
 		String response = "";
 		
-		response = SignIn.login(username);
+		response = sign.pages(username, password);
 		
 		return response;
 	}

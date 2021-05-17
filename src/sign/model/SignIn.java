@@ -15,7 +15,7 @@ public class SignIn
 		this.userCred = new Hashtable<String,String>();
 		
 		setupCred();
-		pages();
+		//pages();
 	}
 	
 	private void setupCred()
@@ -63,10 +63,8 @@ public class SignIn
 		return isValid;
 	}
 	
-	public void pages()
+	public String pages(String username, String password)
 	{
-		String username = display.askQuestion("Username: ");
-		String password = display.askQuestion("Password: ");
 		
 		boolean sucess = login(username, password);
 
@@ -87,10 +85,12 @@ public class SignIn
 		}
 		else
 		{
-			display.showMessage("Those are the wring credentials.\nPlease try again later.");
+			display.showMessage("Those are the wrong credentials.\nPlease try again later.");
 
 		}
 		
+		
+		return "";
 	}
 	
 	private void admin()
