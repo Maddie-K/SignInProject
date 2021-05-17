@@ -12,9 +12,9 @@ public class SignPanel extends JPanel
 	private SignInController controller;
 	private SpringLayout layout;
 	
-	private JButton submitUsername;
-	private JButton submitPassword;
-	private JTextField entryFeild;
+	private JButton submitButton;
+	private JTextField entryUsername;
+	private JTextField entryPassword;
 	private JTextArea textArea;
 	private JScrollPane signPane;
 	
@@ -24,11 +24,12 @@ public class SignPanel extends JPanel
 		this.controller = controller;
 		this.layout = new SpringLayout();
 		
-		this.submitUsername = new JButton("Username");
-		this.submitPassword = new JButton("Password");
-		this.entryFeild = new JTextField("Type here", 30);
+		this.submitButton = new JButton("Submit");
+		this.entryUsername = new JTextField("Enter Username", 15);
+		this.entryPassword = new JTextField("Enter Password", 15);
 		this.textArea = new JTextArea(12,30);
 		this.signPane = new JScrollPane();
+		
 		
 		setupPanel();
 		setupLayout();
@@ -50,63 +51,59 @@ public class SignPanel extends JPanel
 		textArea.setEditable(false);
 		textArea.setEnabled(false);
 		
-		this.add(submitUsername);
-		this.add(submitPassword);
-		this.add(entryFeild);
+		this.add(submitButton);
+		this.add(entryUsername);
+		this.add(entryPassword);
 		this.add(signPane);
 	}
 	
 	private void setuplisteners()
 	{
-		submitUsername.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				String text = entryFeild.getText();
-				setupDisplayUsername(text);
-			}
-		});
+//		submitButton.addActionListener(new ActionListener()
+//		{
+//			public void actionPerformed(ActionEvent click)
+//			{
+//				String text  = entryUsername.getText();
+//				String text2 = entryPassword.getText();
+//				setupDisplay(text, text2);
+//			}
+//		});
 		
-		submitPassword.addActionListener(new ActionListener()
-		{
+		submitButton.addActionListener(new ActionListener()
+		{  
 			public void actionPerformed(ActionEvent click)
 			{
-				String text = entryFeild.getText();
-				setupDisplayPassowrd(text);
-			}
-		});
+				
+				String text  = entryUsername.getText();
+				String text2 = entryPassword.getText();
+				
+				System.out.println(text + text2);
+				
+				setupDisplay(text, text2);
+			}  
+			});  
+		
 	}
 	
-	private void setupDisplayUsername(String username)
+	public void setupDisplay(String username, String password)
 	{
-		//String response = controller.interactWithSignIn(username);
-		textArea.append(username);
-		//textArea.append("\n" + response + "\n");
-		entryFeild.setText("");
+		String response = controller.interactWithSignIn(username, password);
+		textArea.append(username + "\n");
+		textArea.append(password + "\n");
+		textArea.append("\n" + response + "\n");
+		entryPassword.setText("");
 	}
-	
-	private void setupDisplayPassowrd(String password)
-	{
-		//String response = controller.interactWithSignIn(password);
-		textArea.append(password);
-		//textArea.append("\n" + response + "\n");
-		entryFeild.setText("");
-	}
-	
 	
 	private void setupLayout()
 	{
-		layout.putConstraint(SpringLayout.SOUTH, submitUsername, -10, SpringLayout.SOUTH, this);
-		layout.putConstraint(SpringLayout.WEST, entryFeild, 15, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitUsername);
-		layout.putConstraint(SpringLayout.WEST, entryFeild, 15, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.SOUTH, entryFeild, -5, SpringLayout.NORTH, submitUsername);
+		layout.putConstraint(SpringLayout.WEST, submitButton, 155, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, submitButton, -10, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.WEST, entryUsername, 10, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, entryUsername, -35, SpringLayout.SOUTH, submitButton);
+		layout.putConstraint(SpringLayout.WEST, entryPassword, 50, SpringLayout.WEST, submitButton);
+		layout.putConstraint(SpringLayout.SOUTH, entryPassword, -35, SpringLayout.SOUTH, submitButton);
 		layout.putConstraint(SpringLayout.NORTH, signPane, 15, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, signPane, 0, SpringLayout.WEST, entryFeild);
-		layout.putConstraint(SpringLayout.WEST, submitUsername, 90, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.WEST, submitPassword, 0, SpringLayout.EAST, submitUsername);
-		layout.putConstraint(SpringLayout.SOUTH, submitPassword, 0, SpringLayout.SOUTH, submitUsername);
-		
+		layout.putConstraint(SpringLayout.WEST, signPane, 18, SpringLayout.WEST, this);
 	}
 	
 }

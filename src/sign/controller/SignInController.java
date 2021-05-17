@@ -13,20 +13,22 @@ public class SignInController
 	public SignInController()
 	{
 		this.frame = new SignFrame(this);
+		this.sign = new SignIn();
 	}
 	
 	public void start()
 	{
-		System.out.println("Successfully ran");
+		//System.out.println("Successfully ran");
+	}
+	
+	public SignIn getSignIn()
+	{
+		return this.sign;
 	}
 	
 	public String interactWithSignIn(String username, String password)
 	{
-		String response = "";
-		
-		response = sign.pages(username, password);
-		
-		return response;
+		return sign.pages(username, password);
 	}
 	
 }

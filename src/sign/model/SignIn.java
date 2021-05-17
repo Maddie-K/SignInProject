@@ -56,8 +56,6 @@ public class SignIn
 				
 				return isValid;
 			}
-			
-			
 		}
 		
 		return isValid;
@@ -66,38 +64,36 @@ public class SignIn
 	public String pages(String username, String password)
 	{
 		
-		boolean sucess = login(username, password);
+		boolean success = login(username, password);
+		String respond = "Those are the wrong credentials.\nPlease try again later.";
 
-		if (sucess == true)
+		if (success == true)
 		{
 			if(username.equals("Maddie"))
 			{
-				admin();
+				return respond = "You have entered the director's page.\\nWould you like to make any changes?(Y/N)";
 			}
 			else if (username.equals("Cody") || username.equals("Peter") || username.equals("Scott"))
 			{
-				employee();
+				return respond = "Thank you for accessing the employee page.\nHave a nice day.";
 			}
 			else
 			{
-				display.showMessage("Thank you for you membership.");
+				respond = "Thank you for you membership.";
+				return respond;
 			}
 		}
-		else
-		{
-			display.showMessage("Those are the wrong credentials.\nPlease try again later.");
-
-		}
 		
 		
-		return "";
+		return respond;
 	}
 	
-	private void admin()
+	public String admin()
 	{
 		String changes = "N";
+		String respond = "Thank you have a good day!";
 		
-		changes = display.askQuestion("You have entered the director's page.\nWould you like to make any changes?(Y/N)");
+		changes = "You have entered the director's page.\nWould you like to make any changes?(Y/N)";
 		
 		if (changes.equals("Y"))
 		{
@@ -111,16 +107,17 @@ public class SignIn
 					display.showMessage("Ok, have a nice day!");
 				}
 		}
-		else
-		{
-			display.showMessage("Thank you have a good day!");
-			
-		}
+		
+		return respond;
 	}
 	
-	private void employee()
+	public String employee()
 	{
-		display.showMessage("Hello would you like to access a user?(Y/N)");
+		String respond = "Thank you for accessing the employee page.\nHave a nice day.";
+		
+		//respond = "Hello would you like to access a user?(Y/N)");
+		
+		return respond;
 	}
 
 }
