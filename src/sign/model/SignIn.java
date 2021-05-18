@@ -65,21 +65,21 @@ public class SignIn
 	{
 		
 		boolean success = login(username, password);
-		String respond = "Those are the wrong credentials.\nPlease try again later.";
+		String respond = "Those are the wrong credentials.\nPlease try again later.\n";
 
 		if (success == true)
 		{
 			if(username.equalsIgnoreCase("Maddie"))
 			{
-				return respond = "You have entered the director's page.\\nWould you like to make any changes?(Y/N)";
+				return respond = "You have entered the director's page.\n";
 			}
 			else if (username.equalsIgnoreCase("Cody") || username.equalsIgnoreCase("Dallin") || username.equalsIgnoreCase("Scott"))
 			{
-				return respond = "Thank you for accessing the employee page.\nHave a nice day.";
+				return respond = "Thank you for accessing the employee page.\n";
 			}
 			else
 			{
-				respond = "Thank you for you membership.";
+				respond = "Thank you for you membership.\n";
 				return respond;
 			}
 		}
@@ -87,37 +87,4 @@ public class SignIn
 		
 		return respond;
 	}
-	
-	public String admin()
-	{
-		String changes = "N";
-		String respond = "Thank you have a good day!";
-		
-		changes = "You have entered the director's page.\nWould you like to make any changes?(Y/N)";
-		
-		if (changes.equals("Y"))
-		{
-			String userAccess = display.askQuestion("Would you like to access a user?.(Y/N)");
-				if (userAccess.equals("Y"))
-				{
-					display.askQuestion("You will be redirected shortly.");
-				}
-				else
-				{
-					display.showMessage("Ok, have a nice day!");
-				}
-		}
-		
-		return respond;
-	}
-	
-	public String employee()
-	{
-		String respond = "Thank you for accessing the employee page.\nHave a nice day.";
-		
-		//respond = "Hello would you like to access a user?(Y/N)");
-		
-		return respond;
-	}
-
 }

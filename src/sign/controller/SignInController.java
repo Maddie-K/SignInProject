@@ -18,13 +18,12 @@ public class SignInController
 	
 	public void start()
 	{
-		//System.out.println("Successfully ran");
 	}
 	
-	public SignIn getSignIn()
-	{
-		return this.sign;
-	}
+//	public SignIn getSignIn()
+//	{
+//		return this.sign;
+//	}
 	
 	public String interactWithSignIn(String username, String password)
 	{

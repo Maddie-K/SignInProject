@@ -4,25 +4,87 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>120</y>
-      <w>100</w>
-      <h>30</h>
+      <x>360</x>
+      <y>20</y>
+      <w>280</w>
+      <h>150</h>
     </coordinates>
-    <panel_attributes>SimpleClass</panel_attributes>
+    <panel_attributes>bg=#CBC3E3
+SignIn : Model
+--
+- userCred : Hashtable&lt;String, String&gt;
+- display : Popup
+--
++ SignIn : constructor
+- setupCred( ) : void
++ login( String, String ) : String
++ pages( String, String ) : String
++ admin( ) : String </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
-      <y>100</y>
-      <w>270</w>
-      <h>140</h>
+      <x>350</x>
+      <y>200</y>
+      <w>310</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>SignInController :: controller
+    <panel_attributes>bg=orange
+SignInController :: controller
 --
-</panel_attributes>
+- frame : SignFrame
+- sign : SignIn
+--
++ SignInController : constructor
++ start( ) : void
++ interactWithSignIn( String, String ) : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>310</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+SignPanel : view
+--
+- controller : SignInController
+- layout : SpringLayout
+- submitButton : JButton
+- yesButton : JButton
+- noButton : JButton
+- entryUsername : JTextField
+- entryPassword : JTextField
+- textArea : JTextArea
+- signPane : JScrollPane
+--
++ SignPanel(SignInController) : contructor
+- setupPanel( ) : void
+- setupListeners( ) : void
+- setupDisplay( String, String ) : void
+- setupLayout( ) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>280</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+SignFrame :: view
+--
+- controller : SignInController
+- panel : signPanel
+--
++ signPanel(SignInController) : constuctor
++ setUpFrame() : void</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

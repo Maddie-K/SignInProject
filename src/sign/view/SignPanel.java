@@ -55,20 +55,11 @@ public class SignPanel extends JPanel
 		this.add(entryUsername);
 		this.add(entryPassword);
 		this.add(signPane);
+		textArea.append("Please enter you username and password in the corrosponding boxes.\n");
 	}
 	
 	private void setuplisteners()
 	{
-//		submitButton.addActionListener(new ActionListener()
-//		{
-//			public void actionPerformed(ActionEvent click)
-//			{
-//				String text  = entryUsername.getText();
-//				String text2 = entryPassword.getText();
-//				setupDisplay(text, text2);
-//			}
-//		});
-		
 		submitButton.addActionListener(new ActionListener()
 		{  
 			public void actionPerformed(ActionEvent click)
@@ -77,45 +68,32 @@ public class SignPanel extends JPanel
 				String text  = entryUsername.getText();
 				String text2 = entryPassword.getText();
 				
-				System.out.println(text + text2);
-				
 				setupDisplay(text, text2);
 			}  
-			});  
+		});  
 		
 	}
 	
-	public void setupDisplay(String username, String password)
+	private void setupDisplay(String username, String password)
 	{
 		String response = controller.interactWithSignIn(username, password);
-		textArea.append(username + "\n");
-		textArea.append(password + "\n");
+		textArea.append("Username: " + username + "\n");
+		textArea.append("Password: " + password + "\n");
 		textArea.append("\n" + response + "\n");
 		entryPassword.setText("");
+		entryUsername.setText("");
 	}
 	
 	private void setupLayout()
 	{
-		layout.putConstraint(SpringLayout.WEST, submitButton, 155, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.SOUTH, submitButton, -10, SpringLayout.SOUTH, this);
-		layout.putConstraint(SpringLayout.WEST, entryUsername, 10, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.SOUTH, entryUsername, -35, SpringLayout.SOUTH, submitButton);
-		layout.putConstraint(SpringLayout.WEST, entryPassword, 50, SpringLayout.WEST, submitButton);
 		layout.putConstraint(SpringLayout.SOUTH, entryPassword, -35, SpringLayout.SOUTH, submitButton);
 		layout.putConstraint(SpringLayout.NORTH, signPane, 15, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.WEST, signPane, 18, SpringLayout.WEST, this);
-	}
-	
-	private Color generateRandomColor()
-	{
-		Color random = null;
+		layout.putConstraint(SpringLayout.WEST, entryUsername, 9, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.WEST, entryPassword, 5, SpringLayout.EAST, entryUsername);
+		layout.putConstraint(SpringLayout.WEST, submitButton, 155, SpringLayout.WEST, this);
 		
-		int red = (int)(Math.random() * 256);
-		int green = (int)(Math.random() * 256);
-		int blue = (int)(Math.random() * 256);
-		
-		random = new Color(red, green, blue);
-		
-		return random;
 	}
 }
