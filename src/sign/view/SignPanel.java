@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
+import java.util.ArrayList;
 
 import sign.controller.SignInController;
 
@@ -17,6 +18,7 @@ public class SignPanel extends JPanel
 	private JTextField entryPassword;
 	private JTextArea textArea;
 	private JScrollPane signPane;
+	private ArrayList<String> greetings;
 	
 	public SignPanel(SignInController controller)
 	{
@@ -29,11 +31,34 @@ public class SignPanel extends JPanel
 		this.entryPassword = new JTextField("Enter Password", 15);
 		this.textArea = new JTextArea(12,30);
 		this.signPane = new JScrollPane();
+		this.greetings = new ArrayList<String>();
 		
-		
+		setupGreetings();
 		setupPanel();
 		setupLayout();
 		setuplisteners();
+
+	}
+	
+	private void setupGreetings()
+	{
+		greetings.add("Hello!");
+		greetings.add("Bonjour");
+		greetings.add("Howdy");
+		greetings.add("Guten Tag");
+		greetings.add("Hello there fellow human being");
+	}
+	
+	private String randomGreeting()
+	{
+		String greet = "";
+		int randomSelection;
+		
+		randomSelection = (int) (Math.random() * greetings.size());
+		
+		greet = greetings.get(randomSelection);
+		
+		return greet;
 	}
 	
 	private void setupPanel()
@@ -55,7 +80,7 @@ public class SignPanel extends JPanel
 		this.add(entryUsername);
 		this.add(entryPassword);
 		this.add(signPane);
-		textArea.append("Please enter you username and password in the corrosponding boxes.\n");
+		textArea.append(randomGreeting() + "\nPlease enter you username and password in the corrosponding boxes.\n");
 	}
 	
 	private void setuplisteners()

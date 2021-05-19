@@ -8,13 +8,16 @@ public class SignIn
 {
 	private Hashtable<String, String> userCred;
 	private Popup display;
+
 	
 	public SignIn()
 	{
 		this.display = new Popup();
 		this.userCred = new Hashtable<String,String>();
+
 		
 		setupCred();
+
 		//pages();
 	}
 	

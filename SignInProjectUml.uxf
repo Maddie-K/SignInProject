@@ -7,7 +7,7 @@
       <x>360</x>
       <y>20</y>
       <w>280</w>
-      <h>150</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>bg=#CBC3E3
 SignIn : Model
@@ -18,8 +18,7 @@ SignIn : Model
 + SignIn : constructor
 - setupCred( ) : void
 + login( String, String ) : String
-+ pages( String, String ) : String
-+ admin( ) : String </panel_attributes>
++ pages( String, String ) : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -47,7 +46,7 @@ SignInController :: controller
       <x>20</x>
       <y>20</y>
       <w>310</w>
-      <h>260</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes>bg=pink
 SignPanel : view
@@ -55,8 +54,6 @@ SignPanel : view
 - controller : SignInController
 - layout : SpringLayout
 - submitButton : JButton
-- yesButton : JButton
-- noButton : JButton
 - entryUsername : JTextField
 - entryPassword : JTextField
 - textArea : JTextArea
@@ -73,9 +70,9 @@ SignPanel : view
     <id>UMLClass</id>
     <coordinates>
       <x>20</x>
-      <y>280</y>
+      <y>250</y>
       <w>310</w>
-      <h>110</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>bg=pink
 SignFrame :: view
